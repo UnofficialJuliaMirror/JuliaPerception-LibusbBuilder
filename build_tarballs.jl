@@ -40,6 +40,8 @@ platforms = [
     Windows(:x86_64)
 ]
 
+platforms = expand_gcc_versions(platforms)
+
 # The products that we will ensure are always built
 products(prefix) = [
     LibraryProduct(prefix, "libusb", :libusb)
@@ -52,4 +54,3 @@ dependencies = [
 
 # Build the tarballs, and possibly a `build.jl` as well.
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
-
